@@ -73,3 +73,11 @@ fun ImageButton(title: String, imageId: Int, modifier: Modifier) {
         Text(title, color = Color.White, fontSize = 12.sp)
     }
 }
+
+@Composable
+fun LeftAlignText(title: String) {
+    Row(modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start) {
+        Text(text = title, color = Color.White, fontSize = 12.sp)
+    }
+}

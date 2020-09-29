@@ -72,14 +72,6 @@ fun FilterBottomPanel(modifier: Modifier, imageWidth: androidx.compose.ui.unit.D
 }
 
 @Composable
-fun LeftAlignText(title: String) {
-    Row(modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start) {
-        Text(text = title, color = Color.White, fontSize = 12.sp)
-    }
-}
-
-@Composable
 fun ImageRow(width: androidx.compose.ui.unit.Dp, height: androidx.compose.ui.unit.Dp) {
     Row(
         modifier = Modifier.height(height).fillMaxWidth(),
