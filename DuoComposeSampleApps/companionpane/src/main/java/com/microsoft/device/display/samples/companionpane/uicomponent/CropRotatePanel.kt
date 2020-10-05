@@ -54,7 +54,7 @@ fun CropRotateSpannedPortraitPanel(modifier: Modifier) {
 @Composable
 fun CropRotatePanel(modifier: Modifier) {
     Column(modifier = modifier,
-           horizontalGravity = Alignment.CenterHorizontally,
+           horizontalAlignment = Alignment.CenterHorizontally,
            verticalArrangement = Arrangement.spacedBy(5.dp)) {
         Text(text = "Crop & Rotate",
              textAlign = TextAlign.Center,

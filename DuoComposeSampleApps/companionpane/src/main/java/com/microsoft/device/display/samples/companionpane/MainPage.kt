@@ -24,16 +24,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
-import com.microsoft.device.display.samples.companionpane.ui.blueTint
 import com.microsoft.device.display.samples.companionpane.uicomponent.AdjustmentsExtendPanel
-import com.microsoft.device.display.samples.companionpane.uicomponent.AdjustmentsPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.AdjustmentsSpannedExtendPanel
-import com.microsoft.device.display.samples.companionpane.uicomponent.CropRotatePanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.CropRotateSpannedLandscapePanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.CropRotateSpannedPortraitPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.EffectPanel

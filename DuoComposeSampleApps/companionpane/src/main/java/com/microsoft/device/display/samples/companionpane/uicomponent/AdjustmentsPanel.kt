@@ -55,7 +55,7 @@ fun AdjustmentsExtendPanel(modifier: Modifier) {
 @Composable
 fun AdjustmentsPanel(modifier: Modifier) {
     Column(modifier = modifier,
-           horizontalGravity = Alignment.CenterHorizontally,
+           horizontalAlignment = Alignment.CenterHorizontally,
            verticalArrangement = Arrangement.spacedBy(space = 5.dp)) {
         Text(text = "Adjustments", textAlign = TextAlign.Center, color = Color.White, fontSize = 12.sp)
         Divider(color = Color.White, thickness = 1.dp)
