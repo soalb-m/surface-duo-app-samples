@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Text
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.res.stringResource
 import androidx.core.util.Consumer
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             CompanionPaneAppsTheme {
                 Scaffold (
                     topBar = { TopAppBar(
-                        title = { Text(stringResource(R.string.app_name)) }
+                            title = { Text(stringResource(R.string.app_name)) },
                         )
                     },
                     bodyContent = { SetupUI(viewModel = appStateViewModel)}

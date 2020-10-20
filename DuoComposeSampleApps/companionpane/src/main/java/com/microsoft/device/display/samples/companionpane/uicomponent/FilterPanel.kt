@@ -27,7 +27,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.microsoft.device.display.samples.companionpane.ImagePanel
 
 @Composable
 fun FilterPanel(modifier: Modifier) {
@@ -78,16 +77,11 @@ fun ImageRow(width: Dp, height: Dp) {
         horizontalArrangement = Arrangement.spacedBy(1.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        SmallEvenImage(1f, width)
-        SmallEvenImage(1f, width)
-        SmallEvenImage(1f, width)
-        SmallEvenImage(1f, width)
-        SmallEvenImage(1f, width)
-        SmallEvenImage(1f, width)
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
+        ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(1f))
     }
-}
-
-@Composable
-fun SmallEvenImage(weightPercent: Float, width: Dp) {
-    ImagePanel(modifier = Modifier.width(width).fillMaxHeight().weight(weightPercent))
 }

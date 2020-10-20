@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -43,7 +46,7 @@ fun ImageWithText(id: Int, text: String) {
 
 @Composable
 fun FilterControl() {
-    Column() {
+    Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
         IconsPanel()
         AdjustScale()
     }
@@ -51,17 +54,29 @@ fun FilterControl() {
 
 @Composable
 fun AdjustScale() {
-    Column() {
-        Image(asset = imageResource(R.drawable.dot))
-        Image(asset = imageResource(R.drawable.scale_icon))
+    Column(modifier = Modifier.fillMaxWidth().wrapContentHeight(),
+           verticalArrangement = Arrangement.spacedBy(5.dp)) {
+        Image(asset = imageResource(R.drawable.dot),
+              modifier = Modifier.fillMaxWidth().height(5.dp),
+              contentScale = ContentScale.Inside,
+              alignment = Alignment.Center)
+        Image(asset = imageResource(R.drawable.scale_icon),
+              modifier = Modifier.fillMaxWidth().height(25.dp),
+              contentScale = ContentScale.Inside,
+              alignment = Alignment.Center)
     }
 }
 
 @Composable
 fun IconsPanel() {
-    Row(modifier = Modifier.fillMaxSize()) {
+    Row(modifier = Modifier.fillMaxWidth().height(25.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly) {
         Image(asset = imageResource(id = R.drawable.filter_icon))
         Image(asset = imageResource(id = R.drawable.hdr_icon))
         Image(asset = imageResource(id = R.drawable.ecllipse_icon))
+        Image(asset = imageResource(id = R.drawable.vertical_icon))
+        Image(asset = imageResource(id = R.drawable.horizontal_icon))
+        Image(asset = imageResource(id = R.drawable.zoom_icon))
+        Image(asset = imageResource(id = R.drawable.brightness_icon))
     }
 }

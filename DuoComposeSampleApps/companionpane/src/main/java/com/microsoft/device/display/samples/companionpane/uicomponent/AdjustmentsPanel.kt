@@ -29,7 +29,6 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.microsoft.device.display.samples.companionpane.ImagePanel
 import com.microsoft.device.display.samples.companionpane.R
 
 @Composable

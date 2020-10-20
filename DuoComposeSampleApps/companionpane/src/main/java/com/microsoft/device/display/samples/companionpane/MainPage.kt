@@ -8,7 +8,6 @@
 
 package com.microsoft.device.display.samples.companionpane
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,10 +21,7 @@ import androidx.compose.foundation.layout.preferredWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
 import com.microsoft.device.display.samples.companionpane.uicomponent.AdjustmentsExtendPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.AdjustmentsSpannedExtendPanel
@@ -35,6 +31,7 @@ import com.microsoft.device.display.samples.companionpane.uicomponent.EffectPane
 import com.microsoft.device.display.samples.companionpane.uicomponent.FilterBottomPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.FilterControl
 import com.microsoft.device.display.samples.companionpane.uicomponent.FilterPanel
+import com.microsoft.device.display.samples.companionpane.uicomponent.ImagePanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.LeftAlignText
 import com.microsoft.device.display.samples.companionpane.viewmodel.AppStateViewModel
 
@@ -103,8 +100,9 @@ fun PortraitSpannedLayout() {
 @Composable
 fun PortraitLayout() {
     Column(modifier = Modifier.fillMaxSize(),
-           verticalArrangement = Arrangement.SpaceAround) {
-        ImagePanel(Modifier.height(300.dp).fillMaxWidth())
+           verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Spacer(Modifier.preferredHeight(8.dp))
+        ImagePanel(Modifier.height(350.dp).fillMaxWidth())
         LeftAlignText(title = "Filters")
         EffectPanel()
         FilterControl()
@@ -121,13 +119,5 @@ fun LandscapeLayout() {
         }
         Spacer(Modifier.preferredWidth(8.dp))
     }
-}
-
-@Composable
-fun ImagePanel(modifier: Modifier) {
-    Image(asset = imageResource(R.drawable.full_image),
-          modifier = modifier,
-          contentScale = ContentScale.Inside,
-          alignment = Alignment.Center)
 }
 
