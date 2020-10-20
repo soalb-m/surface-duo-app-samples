@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.preferredWidth
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Slider
 import androidx.compose.runtime.Composable
@@ -25,40 +27,30 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.microsoft.device.display.samples.companionpane.ui.Gray
 
 @Composable
-fun SliderControl(title: String) {
+fun SliderControl() {
     var sliderPosition by remember { mutableStateOf(0f) }
-    Column() {
-        Row(modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(text = title,
-                 textAlign = TextAlign.Left,
-                 color = Color.White,
-                 fontSize = 12.sp)
-            Text(text = sliderPosition.toString(),
-                 textAlign = TextAlign.Right,
-                 color = Color.White,
-                 fontSize = 12.sp)
-        }
-        Slider(
-            value = sliderPosition,
-            onValueChange = { sliderPosition = it },
-            valueRange = 0f..100f,
-            thumbColor = Gray,
-            activeTrackColor = Gray,
-            inactiveTrackColor = Color.White,
-            modifier = Modifier.fillMaxWidth()
-        )
-    }
+    Slider(
+        value = sliderPosition,
+        onValueChange = { sliderPosition = it },
+        valueRange = 0f..100f,
+        thumbColor = Gray,
+        activeTrackColor = Gray,
+        inactiveTrackColor = Color.White,
+        modifier = Modifier.fillMaxWidth()
+    )
 }
 
 @Composable
@@ -78,6 +70,26 @@ fun ImageButton(title: String, imageId: Int, modifier: Modifier) {
 fun LeftAlignText(title: String) {
     Row(modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start) {
-        Text(text = title, color = Color.White, fontSize = 12.sp)
+        Spacer(Modifier.preferredWidth(30.dp))
+        Text(text = title,
+             color = Color.White,
+             fontSize = 16.sp,
+             fontWeight = FontWeight.Bold,
+        )
+    }
+}
+
+@Composable
+fun ImageWithText(id: Int, text: String, width: Dp) {
+    Column(modifier = Modifier.wrapContentWidth(),
+           verticalArrangement = Arrangement.spacedBy(5.dp)) {
+        Image(asset = imageResource(id = id),
+              modifier = Modifier.width(imageWidth),
+              alignment = Alignment.Center)
+        Text(text = text,
+             textAlign = TextAlign.Center,
+             color = Color.White,
+             fontSize = 12.sp,
+             modifier = Modifier.wrapContentWidth())
     }
 }

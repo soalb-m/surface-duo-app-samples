@@ -57,7 +57,7 @@ fun FilterTopPanel() {
         LeftAlignText("Straightening")
         ImagePanel(Modifier.height(40.dp))
         Spacer(Modifier.preferredWidth(5.dp))
-        SliderControl(title = "Filter intensity")
+        SliderControl()
     }
 }
 

@@ -5,9 +5,11 @@ import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.preferredHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
@@ -16,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,24 +26,16 @@ import com.microsoft.device.display.samples.companionpane.R
 
 @Composable
 fun EffectPanel() {
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-        ImageWithText(R.drawable.gingham, "Gingham")
-        ImageWithText(R.drawable.orignal, "Original")
-        ImageWithText(R.drawable.lark, "Lark")
-        ImageWithText(R.drawable.juno, "Juno")
-        ImageWithText(R.drawable.ludwig, "Ludwig")
-    }
-}
-
-@Composable
-fun ImageWithText(id: Int, text: String) {
-    Column(modifier = Modifier.width(60.dp)) {
-        Image(asset = imageResource(id = id),
-              modifier = Modifier.width(60.dp))
-        Text(text = text,
-             textAlign = TextAlign.Center,
-             color = Color.White,
-             fontSize = 12.sp)
+    Column(modifier = Modifier.fillMaxWidth()) {
+        LeftAlignText(title = "Filters")
+        Spacer(Modifier.preferredHeight(10.dp))
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+            ImageWithText(R.drawable.gingham, "Gingham", 80.dp)
+            ImageWithText(R.drawable.orignal, "Original", 80.dp)
+            ImageWithText(R.drawable.lark, "Lark", 80.dp)
+            ImageWithText(R.drawable.juno, "Juno", 80.dp)
+            ImageWithText(R.drawable.ludwig, "Ludwig", 80.dp)
+        }
     }
 }
 
