@@ -18,8 +18,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.preferredWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Slider
 import androidx.compose.runtime.Composable
@@ -80,16 +78,18 @@ fun LeftAlignText(title: String) {
 }
 
 @Composable
-fun ImageWithText(id: Int, text: String, width: Dp) {
-    Column(modifier = Modifier.wrapContentWidth(),
-           verticalArrangement = Arrangement.spacedBy(5.dp)) {
+fun ImageWithText(id: Int, text: String, imageWidth: Dp, width: Dp) {
+    Column(modifier = Modifier.preferredWidth(width),
+           verticalArrangement = Arrangement.spacedBy(5.dp),
+           horizontalAlignment = Alignment.CenterHorizontally) {
         Image(asset = imageResource(id = id),
-              modifier = Modifier.width(imageWidth),
+              modifier = Modifier.preferredWidth(imageWidth),
               alignment = Alignment.Center)
         Text(text = text,
              textAlign = TextAlign.Center,
              color = Color.White,
              fontSize = 12.sp,
-             modifier = Modifier.wrapContentWidth())
+             modifier = Modifier.fillMaxWidth()
+        )
     }
 }

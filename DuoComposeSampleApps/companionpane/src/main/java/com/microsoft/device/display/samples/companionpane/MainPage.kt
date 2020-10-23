@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.preferredHeight
 import androidx.compose.foundation.layout.preferredWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -27,11 +28,11 @@ import com.microsoft.device.display.samples.companionpane.uicomponent.CropRotate
 import com.microsoft.device.display.samples.companionpane.uicomponent.CropRotateSpannedPortraitPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.EffectPanel
 import com.microsoft.device.display.samples.companionpane.uicomponent.FilterBottomPanel
-import com.microsoft.device.display.samples.companionpane.uicomponent.FilterControl
 import com.microsoft.device.display.samples.companionpane.uicomponent.FilterPanel
+import com.microsoft.device.display.samples.companionpane.uicomponent.FullFilterControl
 import com.microsoft.device.display.samples.companionpane.uicomponent.ImagePanel
-import com.microsoft.device.display.samples.companionpane.uicomponent.LeftAlignText
 import com.microsoft.device.display.samples.companionpane.uicomponent.MagicDefinitionPanel
+import com.microsoft.device.display.samples.companionpane.uicomponent.ShortFilterControl
 import com.microsoft.device.display.samples.companionpane.uicomponent.VignetteBrightnessPanel
 import com.microsoft.device.display.samples.companionpane.viewmodel.AppStateViewModel
 
@@ -102,23 +103,29 @@ fun PortraitLayout() {
         Spacer(Modifier.preferredHeight(8.dp))
         ImagePanel(Modifier.height(350.dp).fillMaxWidth())
         EffectPanel()
-        FilterControl()
+        FullFilterControl()
     }
 }
 
 @Composable
 fun LandscapeLayout() {
-    Column() {
-        Row(modifier = Modifier.fillMaxSize()) {
-            ImagePanel(Modifier.width(420.dp).fillMaxHeight().weight(0.65f))
-            Column(modifier = Modifier.fillMaxHeight().weight(0.35f),
-                   verticalArrangement = Arrangement.spacedBy(5.dp)) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Spacer(Modifier.preferredHeight(40.dp))
+        Row(modifier = Modifier.wrapContentWidth()) {
+            Spacer(Modifier.preferredWidth(20.dp))
+            ImagePanel(Modifier.width(360.dp))
+            Spacer(Modifier.preferredWidth(20.dp))
+            Column(modifier = Modifier.wrapContentWidth()
+            ) {
+                Spacer(Modifier.preferredHeight(10.dp))
                 MagicDefinitionPanel()
+                Spacer(Modifier.preferredHeight(20.dp))
                 VignetteBrightnessPanel()
             }
-            Spacer(Modifier.preferredWidth(8.dp))
+            Spacer(Modifier.preferredWidth(20.dp))
         }
-        FilterControl()
+        Spacer(Modifier.preferredHeight(30.dp))
+        ShortFilterControl()
     }
 }
 

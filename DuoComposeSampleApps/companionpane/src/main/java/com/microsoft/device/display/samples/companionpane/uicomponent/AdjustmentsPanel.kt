@@ -8,6 +8,7 @@
 
 package com.microsoft.device.display.samples.companionpane.uicomponent
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
@@ -16,16 +17,19 @@ import com.microsoft.device.display.samples.companionpane.R
 
 @Composable
 fun MagicDefinitionPanel() {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(20.dp)) {
         MagicWandPanel()
         DefinitionPanel()
     }
 }
 
+val iconWidth = 25.dp
+val controlWidth = 70.dp
+
 @Composable
 fun MagicWandPanel() {
     Row() {
-        ImageWithText(R.drawable.filter_icon, "Magic Wand", 30.dp)
+        ImageWithText(R.drawable.filter_icon, "Magic Wand", iconWidth, controlWidth)
         SliderControl()
     }
 }
@@ -33,14 +37,14 @@ fun MagicWandPanel() {
 @Composable
 fun DefinitionPanel() {
     Row() {
-        ImageWithText(R.drawable.hdr_icon, "Definition", 30.dp)
+        ImageWithText(R.drawable.hdr_icon, "Definition", iconWidth, controlWidth)
         SliderControl()
     }
 }
 
 @Composable
 fun VignetteBrightnessPanel() {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(20.dp)) {
         VignettePanel()
         BrightnessPanel()
     }
@@ -49,7 +53,7 @@ fun VignetteBrightnessPanel() {
 @Composable
 fun VignettePanel() {
     Row() {
-        ImageWithText(R.drawable.zoom_icon, "Vignette", 30.dp)
+        ImageWithText(R.drawable.zoom_icon, "Vignette", iconWidth, controlWidth)
         SliderControl()
     }
 }
@@ -57,7 +61,7 @@ fun VignettePanel() {
 @Composable
 fun BrightnessPanel() {
     Row() {
-        ImageWithText(R.drawable.brightness_icon, "Brightness", 30.dp)
+        ImageWithText(R.drawable.brightness_icon, "Brightness", iconWidth, controlWidth)
         SliderControl()
     }
 }
